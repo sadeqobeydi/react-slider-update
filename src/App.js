@@ -1,25 +1,90 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState } from "react"
+import bootstrapImage from './accet/images/bootstrap.png'
+import javascriptImage from './accet/images/javascript.jpg'
+import githubImage from './accet/images/github.jpg'
+import reactImage from './accet/images/react.jpg'
+import "./index.css"
+import ImageSlider from "./component/imageSlider/ImageSlider"
+import { Row } from "react-bootstrap"
+import { SlArrowLeft , SlArrowRight  } from "react-icons/sl";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    
+    const [currentIndex , setCurrentIndex] = useState(0)
+
+    const [nextedStyle , setNextedStyle] = useState("")
+    const [previusStyle , setPreviusStyle] = useState("next-prev")
+
+
+    const slide = [
+        {url: bootstrapImage , title :"bootstrap" , dataId : 0},
+        {url: javascriptImage , title :"javascript" , dataId : 1},
+        {url: githubImage , title :"github" , dataId : 2},
+        {url: reactImage , title :"react" , dataId : 3}
+    ]
+
+    const goToPrevious = ()=>{
+        currentIndex == 0 ? setCurrentIndex(slide.length-1) : setCurrentIndex(currentIndex-1)
+    }
+
+    const goToNext = ()=>{
+        currentIndex == slide.length-1 ? setCurrentIndex(0) : setCurrentIndex(currentIndex+1)
+        setNextedStyle("nexted")
+    }
+
+
+    const goToSlide = (index)=>{
+        setCurrentIndex(index)
+    }
+
+    const dotes = slide.map( (itemd , slideIndex) =>{
+        
+        return <div className={`point ${slideIndex === currentIndex ? "active" : ""}`} 
+        key={slideIndex} 
+        onClick={()=>{goToSlide(slideIndex)}}></div>
+    })
+
+    return (
+        <>
+            <Row className="content px-1 align-items-center justify-content-center">
+                <div className="containerSLider col-md-7 col-lg-5 mx-auto p-0 ">
+
+                    <ImageSlider slides = {slide} 
+                        current ={currentIndex  }
+                        currentIndex = {currentIndex} 
+                        styled = {nextedStyle}/>
+{/* 
+                        
+                    <ImageSlider slides = {slide} 
+                        current ={currentIndex+1} 
+                        currentIndex = {currentIndex}
+                        styled ={previusStyle}/>
+
+                    <ImageSlider slides = {slide} 
+                        current ={currentIndex +2} 
+                        currentIndex = {currentIndex}
+                        styled ={previusStyle}/>
+
+                    <ImageSlider slides = {slide} 
+                        current ={currentIndex +3} 
+                        currentIndex = {currentIndex}
+                        styled ={previusStyle}/> */}
+
+                    <button className="previous-item" onClick={goToPrevious}>
+                        <SlArrowLeft  size="25px"/>
+                    </button>
+                    <button className="next-item" onClick={goToNext}>
+                        <SlArrowRight size="25px"/> 
+
+                    </button>
+                    <div className="containerdote">
+                        {dotes}
+                    </div>
+                </div>
+            </Row>            
+        </>
+    )
 }
 
-export default App;
+export default App
