@@ -43,12 +43,9 @@
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-
     position: absolute;
     top:0px;
-
-    transform: translateX(100%);
-    transition: all 1s;
+    transform: translateX(102%);
   }
   /* ------------------- animate with slide ----------------*/
   .containerSLider .image-slider.next-next{
@@ -65,7 +62,7 @@
   }
   @keyframes next-prev {
     0%{transform: translateX(0%);}
-    100%{transform: translateX(100%);}
+    100%{transform: translateX(-100%);}
   }
 
   .containerSLider .image-slider.previous-next{
@@ -84,7 +81,7 @@
     0%{transform: translateX(0%);}
     100%{transform: translateX(100%);}
   }
-
+/* --------------------- button slider ------------------------ */
   .containerSLider button{
     all: inset;
     border: none;

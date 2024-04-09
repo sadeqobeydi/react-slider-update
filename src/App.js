@@ -12,8 +12,6 @@ import { SlArrowLeft , SlArrowRight  } from "react-icons/sl";
 function App() {
     
     const [currentIndex , setCurrentIndex] = useState(0)
-    const [nextedStyle , setNextedStyle] = useState("")
-    const [previusStyle , setPreviusStyle] = useState("next-prev")
 
 
     const slide = [
@@ -29,7 +27,7 @@ function App() {
 
     const goToNext = ()=>{
         currentIndex == slide.length-1 ? setCurrentIndex(0) : setCurrentIndex(currentIndex+1)
-        setNextedStyle("nexted")
+
     }
 
 
