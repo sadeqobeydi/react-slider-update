@@ -37,12 +37,7 @@ function App() {
         setCurrentIndex(index)
     }
 
-    const dotes = slide.map( (itemd , slideIndex) =>{
-        
-        return <div className={`point ${slideIndex === currentIndex ? "active" : ""}`} 
-        key={slideIndex} 
-        onClick={()=>{goToSlide(slideIndex)}}></div>
-    })
+
 
     return (
         <>
@@ -55,6 +50,7 @@ function App() {
                                         currentIndex = {currentIndex} 
                                         active = {index}
                                         statusSlider = {statusSlider}
+                                        length = {slide.length-1}
                                     />
                                 )
                             }
@@ -68,9 +64,16 @@ function App() {
                         <SlArrowRight size="25px"/> 
 
                     </button>
-                    <div className="containerdote">
-                        {dotes}
-                    </div>
+                </div>
+                <div className="containerdote">
+                    {
+                        slide.map( (itemd , slideIndex) =>{
+    
+                            return <div className={`point ${slideIndex === currentIndex ? "active" : ""}`} 
+                            key={slideIndex} 
+                            onClick={()=>{goToSlide(slideIndex)}}></div>
+                        })
+                    }
                 </div>
             </Row>            
         </>
