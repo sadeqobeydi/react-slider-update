@@ -49,16 +49,14 @@
   }
   /* ------------------- animate with slide ----------------*/
   .containerSLider .image-slider.next-next{
-    display: block;
-    animation: next-next 1s ease forwards; 
+    animation: next-next 1s ease-out forwards .01s; 
   }
   @keyframes next-next {
     0%{transform: translateX(100%);}
     100%{transform: translateX(0px);}
   }
   .containerSLider .image-slider.next-previous{
-    display: block;
-    animation: next-prev 1s ease forwards; 
+    animation: next-prev 1s ease-out forwards; 
   }
   @keyframes next-prev {
     0%{transform: translateX(0%);}
@@ -66,16 +64,14 @@
   }
 
   .containerSLider .image-slider.previous-next{
-    display: block;
-    animation: prev-next 1s ease forwards; 
+    animation: prev-next 1s ease-out forwards .01s; 
   }
   @keyframes prev-next {
     0%{transform: translateX(-100%);}
     100%{transform: translateX(0%);}
   }
   .containerSLider .image-slider.previous-previous{
-    display: block;
-    animation: prev-prev 1s ease forwards; 
+    animation: prev-prev 1s ease-out forwards; 
   }
   @keyframes prev-prev {
     0%{transform: translateX(0%);}

@@ -12,6 +12,7 @@ import { SlArrowLeft , SlArrowRight  } from "react-icons/sl";
 function App() {
     
     const [currentIndex , setCurrentIndex] = useState(0)
+    const [statusSlider , setStatusSlider] = useState("next")
 
 
     const slide = [
@@ -22,12 +23,13 @@ function App() {
     ]
 
     const goToPrevious = ()=>{
-        currentIndex == 0 ? setCurrentIndex(slide.length-1) : setCurrentIndex(currentIndex-1)
+        currentIndex == 0 ? setCurrentIndex(slide.length-1) : setCurrentIndex(currentIndex-1);
+        setStatusSlider("previous")
     }
 
     const goToNext = ()=>{
-        currentIndex == slide.length-1 ? setCurrentIndex(0) : setCurrentIndex(currentIndex+1)
-
+        currentIndex == slide.length-1 ? setCurrentIndex(0) : setCurrentIndex(currentIndex+1);
+        setStatusSlider("next")
     }
 
 
@@ -52,6 +54,7 @@ function App() {
                                     <ImageSlider slides = {slide[index]} 
                                         currentIndex = {currentIndex} 
                                         active = {index}
+                                        statusSlider = {statusSlider}
                                     />
                                 )
                             }
