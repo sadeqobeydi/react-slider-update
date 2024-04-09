@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+
 
 import useStatusClass from "../../hooks/useStatusClass"
 
@@ -7,7 +7,7 @@ import useStatusClass from "../../hooks/useStatusClass"
 function ImageSlider({slides , currentIndex , active , statusSlider , length}){
 
 
-    let [prevAnimate , nextAnimate] = useStatusClass({slides , currentIndex , active , statusSlider , length})
+    let [prevAnimate , nextAnimate] = useStatusClass({currentIndex , active , statusSlider , length})
 
     return(
 

@@ -23,12 +23,12 @@ function App() {
     ]
 
     const goToPrevious = ()=>{
-        currentIndex == 0 ? setCurrentIndex(slide.length-1) : setCurrentIndex(currentIndex-1);
+        currentIndex === 0 ? setCurrentIndex(slide.length-1) : setCurrentIndex(currentIndex-1);
         setStatusSlider("previous")
     }
 
     const goToNext = ()=>{
-        currentIndex == slide.length-1 ? setCurrentIndex(0) : setCurrentIndex(currentIndex+1);
+        currentIndex === slide.length-1 ? setCurrentIndex(0) : setCurrentIndex(currentIndex+1);
         setStatusSlider("next")
     }
 

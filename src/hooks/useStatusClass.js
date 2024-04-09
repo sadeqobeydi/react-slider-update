@@ -1,4 +1,4 @@
-function useStatusClass ({slides , currentIndex , active , statusSlider , length}){
+function useStatusClass ({currentIndex , active , statusSlider , length}){
     
     let prevAnimate = '' 
     let nextAnimate = ''
@@ -15,13 +15,14 @@ function useStatusClass ({slides , currentIndex , active , statusSlider , length
     //condition with back slide active class in on click previous and next button  
 
     if (statusSlider === 'next'){
-        if(currentIndex > 0 && currentIndex - active === 1) prevAnimate = 'next-previous'
+            if(currentIndex > 0 && currentIndex - active === 1) prevAnimate = 'next-previous'
 
-        else if (currentIndex === 0 && active === length) prevAnimate = 'next-previous'
+            else if (currentIndex === 0 && active === length) prevAnimate = 'next-previous'
     } 
     else if (statusSlider === 'previous'){
-        if( currentIndex >= 0 && currentIndex + 1  === active) prevAnimate = 'previous-previous'
-        else if( currentIndex === length &&  active === 0) prevAnimate = 'previous-previous'
+
+            if( currentIndex >= 0 && currentIndex + 1  === active) prevAnimate = 'previous-previous'
+            else if( currentIndex === length &&  active === 0) prevAnimate = 'previous-previous'
     }
 
     return [prevAnimate , nextAnimate]
