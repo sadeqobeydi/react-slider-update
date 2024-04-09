@@ -13,11 +13,8 @@ function ImageSlider({slides , currentIndex , active , statusSlider , length}){
 
         <div 
             key={active}
-            className={`image-slider ${nextAnimate} ${prevAnimate}
-                
-            ` } 
+            className={`image-slider ${nextAnimate} ${prevAnimate}`} 
             style={{backgroundImage:`url(${slides.url})`}}>
-
         </div>
     )
 }
