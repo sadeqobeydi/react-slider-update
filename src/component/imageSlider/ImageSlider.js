@@ -1,17 +1,20 @@
 
 
 
-function ImageSlider({slides , current , currentIndex}){
+function ImageSlider({slides , current , currentIndex , active}){
 
-    console.log(current);
-    console.log(slides[current].dataId);
-    console.log(currentIndex);
 
     return(
 
         <div 
-            className={`image-slider ${slides[current].dataId === currentIndex ? 'next-next' : ''}`} 
-            style={{backgroundImage:`url(${slides[current].url})`,}}></div>
+            key={active}
+            className={`image-slider 
+                ${currentIndex === active ? 'next-next' : ''} 
+               
+            ` } 
+            style={{backgroundImage:`url(${slides.url})`}}>
+
+        </div>
     )
 }
 

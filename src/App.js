@@ -12,7 +12,6 @@ import { SlArrowLeft , SlArrowRight  } from "react-icons/sl";
 function App() {
     
     const [currentIndex , setCurrentIndex] = useState(0)
-
     const [nextedStyle , setNextedStyle] = useState("")
     const [previusStyle , setPreviusStyle] = useState("next-prev")
 
@@ -48,29 +47,19 @@ function App() {
     return (
         <>
             <Row className="content px-1 align-items-center justify-content-center">
-                <div className="containerSLider col-md-7 col-lg-5 mx-auto p-0 ">
+                <div className="containerSLider col-md-7 col-lg-5 mx-auto p-0 overflow-hidden">
 
-                    <ImageSlider slides = {slide} 
-                        current ={currentIndex  }
-                        currentIndex = {currentIndex} 
-                        styled = {nextedStyle}/>
-{/* 
-                        
-                    <ImageSlider slides = {slide} 
-                        current ={currentIndex+1} 
-                        currentIndex = {currentIndex}
-                        styled ={previusStyle}/>
-
-                    <ImageSlider slides = {slide} 
-                        current ={currentIndex +2} 
-                        currentIndex = {currentIndex}
-                        styled ={previusStyle}/>
-
-                    <ImageSlider slides = {slide} 
-                        current ={currentIndex +3} 
-                        currentIndex = {currentIndex}
-                        styled ={previusStyle}/> */}
-
+                    {slide.map( (item , index) => {
+                                return (
+                                    <ImageSlider slides = {slide[index]} 
+                                        currentIndex = {currentIndex} 
+                                        active = {index}
+                                    />
+                                )
+                            }
+                        )
+                    }
+                
                     <button className="previous-item" onClick={goToPrevious}>
                         <SlArrowLeft  size="25px"/>
                     </button>
